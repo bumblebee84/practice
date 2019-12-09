@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        #main {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        #box {
+            width: 100%;
+        }
+
+        #h4 {
+            padding: 10px 10px 10px 0;
+            border-bottom: 1px solid black;
+        }
+
+        #box {
+            width: 100%;
+            border: 1px solid #e8e8e8;
+            padding: 15px 10px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        #textarea {
+            width: 100%;
+            display: block;
+            resize: none;
+            padding: 10px;
+        }
+
+        #btn {
+            padding: 3px 10px;
+            margin-top: 10px;
+            background-color: skyblue;
+        }
+
+        li a {
+            color: red;
+            float: right;
+            display: none;
+        }
+
+        .odd{
+            background-color: white;
+        }
+
+        .even{
+            background-color: #e8e8e8;
+        }
+
+        .bgc {
+            background-color: greenyellow !important;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <h4 id="h4">留言内容:</h4>
+    <div id="box">
+        <em id="em">这里会显示内容</em>
+        <ul id="ul">
+            <span class="line_num"></span>
+        </ul>
+    </div>
+    <textarea cols="30" id="textarea"  name="" rows="10"></textarea>
+    <button id="btn">发表内容</button>
+</div>
+
+<script>
+    window.onload = function () {
+        let box = document.getElementById('box');
+        let ul = document.getElementById('ul');
+        let em = document.getElementById('em');
+        let textarea = document.getElementById('textarea');
+        let btn = document.getElementById('btn');
+        let num = 1;
+
+        btn.onclick = function () {
+            if (textarea.value <= 0){
+                alert('请输入内容');
+                return;
+            } else {
+                em.remove();
+                let li = document.createElement('li');
+                li.innerHTML = '<span>' + num  + '</span>' + '.' + textarea.value + '<a href="javascript:;">删除</a>';
+                ul.appendChild(li);
+                textarea.value = '';
+                textarea.focus();
+                num++;
+            }
+
+            let liAll = document.getElementsByTagName('li');
+            for(let i=0;i<liAll.length;i++){
+                if(i%2 == 0){
+                    liAll[i].style.backgroundColor = '#e8e8e8';
+                }else {
+                    liAll[i].style.backgroundColor = '#f2f2f2';
+                }
+            }
+        };
+
+        ul.onmouseenter = function () {
+            let liAll = document.getElementsByTagName('li');
+            for(let i=0;i<liAll.length;i++){
+                liAll[i].onmouseenter = function () {
+                    this.lastChild.style.display = 'block';
+                    this.lastChild.onclick = function () {
+                        this.parentNode.remove();
+                        if(liAll.length > 0){
+                            let liA = document.getElementsByTagName('li');
+                            for(let i=0;i<liA.length;i++){
+                                liA[i].firstChild.innerText = i + 1;
+                            }
+                            num = liAll.length + 1;
+                        }else {
+                            let em = document.createElement('em');
+                            em.innerText = '这里会显示内容';
+                            box.appendChild(em);
+                        }
+
+                    };
+                    this.classList.add('bgc');
+                };
+
+                liAll[i].onmouseleave = function () {
+                    this.lastChild.style.display = 'none';
+                    this.classList.remove('bgc');
+                };
+            }
+        };
+
+        function numRefresh() {
+            let li
+        }
+
+    }
+</script>
+</body>
+</html>
