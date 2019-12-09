@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上移下移</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <span>1.周杰伦</span>
+                <button class="prev">上移1</button>
+                <button class="next">下移1</button>
+            </li>
+            <li>
+                <span>2.刘德华</span>
+                <button class="prev">上移2</button>
+                <button class="next">下移2</button>
+            </li>
+            <li>
+                <span>3.张学友</span>
+                <button class="prev">上移3</button>
+                <button class="next">下移3</button>
+            </li>
+            <li>
+                <span>4.陈奕迅</span>
+                <button class="prev">上移4</button>
+                <button class="next">下移4</button>
+            </li>
+            <li>
+                <span>5.杨千嬅</span>
+                <button class="prev">上移5</button>
+                <button class="next">下移5</button>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        window.onload = function () {
+            let prev = document.getElementsByClassName('prev');
+            let next = document.getElementsByClassName('next');
+
+            for(let i=0;i<prev.length;i++){
+                prev[i].onclick = function () {
+                    this.parentNode.parentNode.insertBefore(this.parentNode,this.parentNode.previousElementSibling);
+                }
+            }
+
+            for(let i=0;i<next.length;i++){
+                next[i].onclick = function () {
+                    if (this.parentNode == this.parentNode.parentNode.lastElementChild){
+                        this.parentNode.parentNode.insertBefore(this.parentNode,this.parentNode.parentNode.firstElementChild);
+                    }else {
+                        this.parentNode.parentNode.insertBefore(this.parentNode,this.parentNode.nextElementSibling.nextElementSibling);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!--this.parentNode.parentNode.insertBefore(this.parentNode,this.parentNode.previousSibling);-->
