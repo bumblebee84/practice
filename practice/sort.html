@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排序</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 100px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .div {
+            width : 100px;
+            height : 100px;
+            border: 1px solid #000000;
+            font-size: 70px;
+            line-height: 100px;
+            text-align: center;
+            font-weight: 900;
+            transition: all 1s;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #pink {
+            background-color: pink;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: skyblue;
+            position: absolute;
+            top: 520px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="div" id="yellow">3</div>
+    <div class="div" id="pink">2</div>
+    <div class="div" id="blue">1</div>
+    <div class="div" id="green">5</div>
+    <div class="div" id="red">4</div>
+    <button id="btn">升序</button>
+</div>
+
+<script>
+    window.onload = function () {
+        let btn = document.getElementById('btn');
+        btn.turnOnOff = 'ascending';
+        let aDiv = document.getElementsByClassName('div');
+        function draw(){
+            for(let i=0;i<aDiv.length;i++){
+                aDiv[i].style.position = 'absolute';
+                aDiv[i].style.top = i * 100 + 'px';
+            }
+        }
+        draw();
+
+        btn.onclick = function () {
+            if(btn.turnOnOff == 'ascending'){
+                for(let i=0;i<aDiv.length;i++){
+                    aDiv[i].style.top = (+aDiv[i].innerText-1) * 100 + 'px';
+                }
+                btn.turnOnOff = 'descending';
+                btn.innerText = '降序';
+            }else{
+                for(let i=0;i<aDiv.length;i++){
+                    aDiv[i].style.top = (aDiv.length - (+aDiv[i].innerText)) * 100 + 'px';
+                }
+                btn.turnOnOff = 'ascending';
+                btn.innerText = '升序';
+            }
+        };
+
+    }
+</script>
+</body>
+</html>

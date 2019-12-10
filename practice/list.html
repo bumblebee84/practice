@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>上移下移</title>
+    <style>
+        li{
+            /*position: absolute;*/
+            transition: all 2s ease;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -39,6 +45,15 @@
         window.onload = function () {
             let prev = document.getElementsByClassName('prev');
             let next = document.getElementsByClassName('next');
+            let lis = document.getElementsByTagName('li');
+            // function sort() {
+            //     for(let i=0;i<lis.length;i++){
+            //         lis[i].style.top = i * 25 + 'px';
+            //     }
+            // }
+
+            // sort();
+
 
             for(let i=0;i<prev.length;i++){
                 prev[i].onclick = function () {
@@ -60,4 +75,3 @@
 </body>
 </html>
 
-<!--this.parentNode.parentNode.insertBefore(this.parentNode,this.parentNode.previousSibling);-->
