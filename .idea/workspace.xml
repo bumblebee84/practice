@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddcf4aa9-9a86-4b05-9108-d2d2280eeedb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/practice/sort.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/practice/text.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/list.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,11 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice/sort.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="90" column="74" selection-start-line="90" selection-start-column="74" selection-end-line="90" selection-end-column="74" />
+            <state relative-caret-position="236">
+              <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/practice/text.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="39" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -63,14 +71,15 @@
         <option value="$PROJECT_DIR$/practice/index.html" />
         <option value="$PROJECT_DIR$/practice/list.html" />
         <option value="$PROJECT_DIR$/practice/sort.html" />
+        <option value="$PROJECT_DIR$/practice/text.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="333" />
-    <option name="y" value="120" />
-    <option name="width" value="917" />
-    <option name="height" value="502" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-12" />
+    <option name="y" value="24" />
+    <option name="width" value="1244" />
+    <option name="height" value="595" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -128,18 +137,18 @@
       <updated>1575447800615</updated>
       <workItem from="1575447801971" duration="10605000" />
       <workItem from="1575860881000" duration="41000" />
-      <workItem from="1575860977190" duration="19444000" />
+      <workItem from="1575860977190" duration="25485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30090000" />
+    <option name="totallyTimeSpent" value="36131000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="333" y="120" width="917" height="502" extended-state="0" />
+    <frame x="-12" y="24" width="1244" height="595" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24913494" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1823385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -232,8 +241,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/practice/sort.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="90" column="74" selection-start-line="90" selection-start-column="74" selection-end-line="90" selection-end-column="74" />
+        <state relative-caret-position="236">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/text.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="39" selection-end-column="50" />
         </state>
       </provider>
     </entry>

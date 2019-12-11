@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本提示</title>
+    <style>
+        #box {
+            width: 600px;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 100px auto;
+            background-color: #888888;
+            position: relative;
+        }
+
+        span {
+            width: 200px;
+            display: none;
+        }
+
+        a {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>12月10日，在最新一期<a href="">变身总动员<span>变身总动员是湖南卫视主办的大型综艺节目</span></a>节目中，袁姗姗在节目上自曝拍戏坠马的经历，并称当时躺在地上足有30分钟没有知觉只是有眼睛还能动，等缓过劲来以后也来不及去<a
+            href="">医院<span>北京海淀医院是一家大型三甲医院,擅长治疗各种疾病</span></a>，仍然继续拍戏，也因此落下腰伤的病根。 明星改造素人节目 [1]
+        成为更好的自己，这是每个人都有的向往。魔杖挥出，平凡化为闪耀。童话里的奇迹映射了这样的向往。而《变身总动员》则是在现实中实现童话。在人们对美好日渐有了更多需求的当下，如何变美成为了年轻人心中的一个难题。而《变身总动员》请来了明星嘉宾组成的魔法团，手执“魔杖“，带来私人物品，分享“美好秘籍”。同时，由时尚专业先锋组成的骑士团为“美”保驾护航。为了拓宽美丽样本，引发共鸣。节目选取了不同<a href="">类别<span>活动的不同形式展现出不同效果</span></a> 的年轻人作为素人嘉宾，他们除了在现在的时尚观念飞速迭代更新中无所适从外，都有着自己生活中的问题与烦恼。甚至，有明星为了帮好友完成心愿替好友报名参与节目。节目中，明星嘉宾们不光提供解决问题的可能性，还帮助素人嘉宾完成心愿。所以，“变身”已经不止是从外表上帮人完成华丽转身，更是实现大家梦想的一个起点。
+        ,<a href="">李白<span>李白深受黄老列庄思想影响，有《李太白集》传世，诗作中多以醉时写的，代表作有《望庐山瀑布》《行路难》《蜀道难》《将进酒》《明堂赋》《早发白帝城》等多首。</span></a>是一个牛逼的英雄</p>
+</div>
+
+<script>
+    window.onload = function () {
+        let box = document.getElementById('box');
+        let as = document.getElementsByTagName('a');
+        for (let i = 0; i < as.length; i++) {
+            as[i].onmouseenter = function () {
+                let child = this.lastElementChild;
+                child.style.display = 'inline-block';
+                child.style.width = '200px';
+                child.style.padding = '5px';
+                child.style.border = '1px solid #e3e3e3';
+                child.style.backgroundColor = 'red';
+                child.style.position = 'absolute';
+                child.style.marginTop = '20px';
+                if(child.offsetLeft + child.offsetWidth >= box.offsetWidth){
+                    child.style.right = 0 + 'px';
+                }else if(child.offsetTop + child.offsetHeight >= box.offsetHeight) {
+                    child.style.bottom = 0 + 'px';
+                }
+            };
+
+            as[i].onmouseleave = function () {
+                let child = this.lastElementChild;
+                child.style.display = 'none';
+            };
+        }
+    }
+</script>
+</body>
+</html>
