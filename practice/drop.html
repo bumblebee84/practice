@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方块掉落</title>
+</head>
+<body>
+<script>
+    window.onload = function () {
+        let str = '';
+        let len = 20;
+        let timer1 = null;
+        let timer2 = null;
+        let aDiv = document.getElementsByTagName('div');
+
+        for (let i = 0; i < len; i++) {
+            str += '<div style="width: 50px; height: 50px; background: red; position: absolute; top: 0; left: ' + i * 60 + 'px; "></div>'
+        }
+
+        document.body.innerHTML = str;
+
+        for (let i = 0; i < aDiv.length; i++) {
+            aDiv[i].onclick = function () {
+                let j = i;
+                clearInterval(timer1);
+                timer1 = setInterval(function () {
+                    animation(aDiv[i], 'top', 5, 500);
+                    i++;
+                    if (i === len){
+                        clearInterval(timer1);
+                    }
+                },100);
+                clearInterval(timer2);
+                timer2 = setInterval(function () {
+                    animation(aDiv[j], 'top', 5, 500);
+                    j--;
+                    if (j < 0){
+                        clearInterval(timer2);
+                    }
+                },100)
+            };
+        }
+
+        function animation(obj, attr, dir, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (target > obj.offsetTop) {
+                    obj.style[attr] = obj.offsetTop + dir + 'px';
+                }else {
+                    obj.style[attr] = target + 'px';
+                }
+            }, 10);
+        }
+    }
+</script>
+</body>
+</html>
+
+obj.style.top = obj.offsetTop + 5 + 'px';
+if (obj.offsetTop >= 500) {
+clearInterval(obj.timer);
+}
