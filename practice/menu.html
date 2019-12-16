@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+    <style>
+        .second_ul, .third_ul {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul class="first_ul">
+        <li class="first_li">
+            第一级菜单
+            <ul class="second_ul">
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="first_li">
+            第一级菜单
+            <ul class="second_ul">
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="first_li">
+            第一级菜单
+            <ul class="second_ul">
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+                <li class="second_li">第二级菜单
+                    <ul class="third_ul">
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                        <li class="third_li">第三极菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    window.onload = function () {
+        let first_li = document.getElementsByClassName('first_li');
+        let second_li = document.getElementsByClassName('second_li');
+        let third_li = document.getElementsByClassName('third_li');
+        let second_ul = document.getElementsByClassName('second_ul');
+        let third_ul = document.getElementsByClassName('third_ul');
+
+        for (let i = 0; i < first_li.length; i++) {
+            first_li[i].onclick = function () {
+                for (let i = 0; i < second_ul.length; i++) {
+                    second_ul[i].style.display = 'none';
+                }
+                second_ul[i].style.display = 'block';
+            }
+        }
+
+        for (let i = 0; i < second_li.length; i++) {
+            second_li[i].onclick = function () {
+                event.cancelBubble = true;
+                for (let i = 0; i < third_ul.length; i++) {
+                    third_ul[i].style.display = 'none';
+                }
+                third_ul[i].style.display = 'block';
+            }
+        }
+
+        for(let i=0;i<third_li.length;i++){
+            third_li[i].onclick = function () {
+                for(let i=0;i<third_li.length;i++){
+                    third_li[i].style.backgroundColor = 'white';
+                }
+                this.style.backgroundColor = 'red';
+            }
+        }
+    }
+</script>
+</body>
+</html>
