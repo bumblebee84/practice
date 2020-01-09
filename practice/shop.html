@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .group{
+            border: 1px solid #e8e8e8;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .row{
+            margin: 0 8px;
+            position: relative;
+            border: 1px dashed #e8e8e8;
+            height: 50px;
+            line-height: 50px;
+        }
+        .head{
+            position: absolute;
+            /*top: 9px;*/
+            left: 11px;
+        }
+        .body{
+            padding: 0 100px 0 112px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .text{
+            max-width: 140px;
+            text-overflow: ellipsis;
+            margin-right: 30px;
+            color: #000;
+        }
+        .crumb{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 11px;
+            white-space: nowrap;
+        }
+        .crumbA_style{
+            border: 1px solid #e8e8e8;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+        .btn_x_style{
+            color: red;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="group">
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title">价格: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text">0-299</span>
+            </a>
+            <a href="#">
+                <span class="text">300-699</span>
+            </a>
+            <a href="#">
+                <span class="text">1100-1999</span>
+            </a>
+            <a href="#">
+                <span class="text">2000-3599</span>
+            </a>
+            <a href="#">
+                <span class="text">3600-4299</span>
+            </a>
+            <a href="#">
+                <span class="text">4300以上</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title">类别: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text">文件夹</span>
+            </a>
+            <a href="#">
+                <span class="text">文件筐</span>
+            </a>
+            <a href="#">
+                <span class="text">美工刀</span>
+            </a>
+            <a href="#">
+                <span class="text">三针一钉</span>
+            </a>
+            <a href="#">
+                <span class="text">风琴包</span>
+            </a>
+            <a href="#">
+                <span class="text">票夹</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title">品牌: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text">得力</span>
+            </a>
+            <a href="#">
+                <span class="text">齐心</span>
+            </a>
+            <a href="#">
+                <span class="text">优比利</span>
+            </a>
+            <a href="#">
+                <span class="text">三木</span>
+            </a>
+            <a href="#">
+                <span class="text">BGC</span>
+            </a>
+            <a href="#">
+                <span class="text">广博</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="crumb">
+    <span>所有分类 ></span>
+</div>
+
+<script>
+    window.onload = function () {
+        let group = document.getElementsByClassName('group')[0];
+        let crumb = document.getElementsByClassName('crumb')[0];
+        group.onclick = function () {
+            if(event.target.className == 'text'){
+                let crumbA = document.createElement('a');
+                crumbA.innerText = event.target.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText + event.target.innerText;
+                crumbA.classList.add('crumbA_style');
+                crumb.appendChild(crumbA);
+                let btn_x = document.createElement('span');
+                btn_x.innerText = '×';
+                crumbA.appendChild(btn_x);
+                btn_x.classList.add('btn_x_style');
+            }
+        }
+    }
+</script>
+</body>
+</html>

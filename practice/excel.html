@@ -224,7 +224,6 @@
                 }
             } else if (event.target.innerText == '下移') {
                 if (thisTr.children[1].innerText < trLen.length - 1) {
-                    console.log(thisTr.nextElementSibling.nextElementSibling);
                     tbody.insertBefore(thisTr, thisTr.nextElementSibling.nextElementSibling);
                     for (let i = 1; i < tab.rows.length; i++) {
                         tab.rows[i].cells[1].textContent = i;
