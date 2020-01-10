@@ -2,251 +2,189 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>购物车</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .group{
+            border: 1px solid #e8e8e8;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .row{
+            margin: 0 8px;
+            position: relative;
+            border: 1px dashed #e8e8e8;
+            height: 50px;
+            line-height: 50px;
+        }
+        .head{
+            position: absolute;
+            /*top: 9px;*/
+            left: 11px;
+        }
+        .body{
+            padding: 0 100px 0 112px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .text{
+            max-width: 140px;
+            text-overflow: ellipsis;
+            margin-right: 30px;
+            color: #000;
+        }
+        .crumb{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 11px;
+            white-space: nowrap;
+        }
+        .crumbA_style{
+            border: 1px solid #e8e8e8;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+        .btn_x_style{
+            color: red;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-<div class="product-list-main">
-     
-    <ul class="product-list-wrap" id="ul_select">
-         
-        <li class="select-result">
-             
-            <dl class="clearfix" id="dl_result">
-                 
-                <dd class="select-no"></dd>
-                 
-                <dt><span id="clearAll">清空筛选</span></dt>
-                 
-            </dl>
-             
-        </li>
-         
-        <li class="select-list">
-             
-            <dl class="dl clearfix" id="select1">
-                 
-                <dt>品牌：</dt>
-                 
-                <div class="fl">
-                     
-                    <dd><span>针织衫</span></dd>
-                     
-                    <dd><span>毛呢外套</span></dd>
-                     
-                    <dd><span>T恤</span></dd>
-                     
-                    <dd><span>羽绒服</span></dd>
-                     
-                    <dd><span>棉衣</span></dd>
-                     
-                    <dd><span>卫衣</span></dd>
-                     
-                    <dd><span>风衣</span></dd>
-                     
-                </div>
-                 
-            </dl>
-             
-        </li>
-         
-        <li class="select-list">
-             
-            <dl class="dl clearfix" id="select2">
-                 
-                <dt>名称：</dt>
-                 
-                <div class="fl">
-                     
-                    <dd><span>牛仔裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                    <dd><span>哈伦裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>牛仔裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                    <dd><span>哈伦裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>牛仔裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                    <dd><span>哈伦裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                </div>
-                 
-                <div class="product-list-more"><i>更多</i><img alt="" src="images/more.png"></div>
-                 
-            </dl>
-             
-        </li>
-         
-        <li class="select-list">
-             
-            <dl class="dl clearfix" id="select3">
-                 
-                <dt>编号：</dt>
-                 
-                <div class="fl">
-                     
-                    <dd><span>连衣裙</span></dd>
-                     
-                    <dd><span>半身裙</span></dd>
-                     
-                    <dd><span>长袖连衣裙</span></dd>
-                     
-                    <dd><span>中长款连衣裙</span></dd>
-                     
-                    <dd><span>连衣裙</span></dd>
-                     
-                    <dd><span>半身裙</span></dd>
-                     
-                    <dd><span>长袖连衣裙</span></dd>
-                     
-                    <dd><span>中长款连衣裙</span></dd>
-                     
-                    <dd><span>连衣裙</span></dd>
-                     
-                    <dd><span>半身裙</span></dd>
-                     
-                    <dd><span>长袖连衣裙</span></dd>
-                     
-                    <dd><span>中长款连衣裙</span></dd>
-                     
-                </div>
-                 
-                <div class="product-list-more"><i>更多</i><img alt="" src="images/more.png"></div>
-                 
-            </dl>
-             
-        </li>
-         
-        <li class="select-list">
-             
-            <dl class="dl clearfix" id="select4">
-                 
-                <dt>材质：</dt>
-                 
-                <div class="fl">
-                     
-                    <dd><span>银</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">铜</span></dd>
-                     
-                    <dd><span href="#">45</span></dd>
-                     
-                    <dd><span href="#">金</span></dd>
-                     
-                </div>
-                 
-                <div class="product-list-more"><i>更多</i><img alt="" src="images/more.png"></div>
-                 
-            </dl>
-             
-        </li>
-         
-        <li class="select-list">
-             
-            <dl class="dl clearfix" id="select5">
-                 
-                <dt>规格：</dt>
-                 
-                <div class="fl">
-                     
-                    <dd><span>45*10*60</span></dd>
-                     
-                    <dd><span>45*10*60</span></dd>
-                     
-                    <dd><span>45*10*60</span></dd>
-                     
-                    <dd><span>45*10*60</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                    <dd><span>哈伦裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                    <dd><span>小脚/铅笔裤</span></dd>
-                     
-                    <dd><span>休闲裤</span></dd>
-                     
-                    <dd><span>打底裤</span></dd>
-                     
-                </div>
-                 
-                <div class="product-list-more"><i>更多</i><img alt="" src="images/more.png"></div>
-                 
-            </dl>
-             
-        </li>
-           
-         
-    </ul>
-     
+<div class="group">
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title" data-cid="1">价格: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text" data-tid="1">0-299</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="2">300-699</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="3">1100-1999</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="4">2000-3599</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="5">3600-4299</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="6">4300以上</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title" data-cid="2">类别: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text" data-tid="1">文件夹</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="2">文件筐</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="3">美工刀</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="4">三针一钉</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="5">风琴包</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="6">票夹</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="head">
+            <h4>
+                <span class="title" data-cid="3">品牌: </span>
+            </h4>
+        </div>
+        <div class="body">
+            <a href="#">
+                <span class="text" data-tid="1">得力</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="2">齐心</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="3">优比利</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="4">三木</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="5">BGC</span>
+            </a>
+            <a href="#">
+                <span class="text" data-tid="6">广博</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="crumb">
+    <span>所有分类 ></span>
 </div>
 
+<script>
+    window.onload = function () {
+        let group = document.getElementsByClassName('group')[0];
+        let crumb = document.getElementsByClassName('crumb')[0];
+        let selectedPool = {};
+        group.onclick = function () {
+            if(event.target.className == 'text'){
+                let classNode = event.target.parentNode.parentNode.previousElementSibling.children[0].children[0];
+                let tagNode = event.target;
+
+                let classId = classNode.dataset.cid;
+                let tagId = tagNode.dataset.tid;
+                if (!classId || !tagId) return;
+
+                let key = 'f_' + classId + '_' + tagId;
+                if (selectedPool[key]) return;
+
+                if (!selectedPool[key]) {
+                    chose(classNode, tagNode, key);
+                }
+            }
+        };
+
+        function chose(classNode, tagNode, key){
+            let crumbA = document.createElement('a');
+            crumbA.innerText = classNode.innerText + tagNode.innerText;
+            crumbA.classList.add('crumbA_style');
+            crumb.appendChild(crumbA);
+            let btn_x = document.createElement('span');
+            btn_x.innerText = '×';
+            crumbA.appendChild(btn_x);
+            btn_x.classList.add('btn_x_style');
+            selectedPool[key] = true;
+        }
+
+        function unchose(){
+            //TODO
+        }
+    }
+</script>
 </body>
 </html>

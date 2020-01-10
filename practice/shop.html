@@ -4,54 +4,68 @@
     <meta charset="UTF-8">
     <title>购物车</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             list-style: none;
         }
-        .group{
+
+        .group {
             border: 1px solid #e8e8e8;
             position: relative;
             white-space: nowrap;
             overflow: hidden;
         }
-        .row{
+
+        .row {
             margin: 0 8px;
             position: relative;
             border: 1px dashed #e8e8e8;
             height: 50px;
             line-height: 50px;
         }
-        .head{
+
+        .head {
             position: absolute;
             /*top: 9px;*/
             left: 11px;
         }
-        .body{
+
+        .body {
             padding: 0 100px 0 112px;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
-        .text{
+
+        .text {
             max-width: 140px;
             text-overflow: ellipsis;
             margin-right: 30px;
             color: #000;
         }
-        .crumb{
+
+        .crumb {
             width: 100%;
             height: 40px;
             line-height: 40px;
             margin-left: 11px;
             white-space: nowrap;
         }
-        .crumbA_style{
+
+        .crumbA_style {
             border: 1px solid #e8e8e8;
             padding: 5px 10px;
             margin-right: 10px;
         }
-        .btn_x_style{
+
+        .crumbA_style:hover {
+            border: 1px solid red;
+            cursor: pointer;
+        }
+
+        .btn_x_style {
             color: red;
             margin-left: 10px;
             font-size: 20px;
@@ -63,81 +77,81 @@
     <div class="row">
         <div class="head">
             <h4>
-                <span class="title">价格: </span>
+                <span class="title" data-cid="1">价格: </span>
             </h4>
         </div>
         <div class="body">
             <a href="#">
-                <span class="text">0-299</span>
+                <span class="text" data-tid="1">0-299</span>
             </a>
             <a href="#">
-                <span class="text">300-699</span>
+                <span class="text" data-tid="2">300-699</span>
             </a>
             <a href="#">
-                <span class="text">1100-1999</span>
+                <span class="text" data-tid="3">1100-1999</span>
             </a>
             <a href="#">
-                <span class="text">2000-3599</span>
+                <span class="text" data-tid="4">2000-3599</span>
             </a>
             <a href="#">
-                <span class="text">3600-4299</span>
+                <span class="text" data-tid="5">3600-4299</span>
             </a>
             <a href="#">
-                <span class="text">4300以上</span>
+                <span class="text" data-tid="6">4300以上</span>
             </a>
         </div>
     </div>
     <div class="row">
         <div class="head">
             <h4>
-                <span class="title">类别: </span>
+                <span class="title" data-cid="2">类别: </span>
             </h4>
         </div>
         <div class="body">
             <a href="#">
-                <span class="text">文件夹</span>
+                <span class="text" data-tid="1">文件夹</span>
             </a>
             <a href="#">
-                <span class="text">文件筐</span>
+                <span class="text" data-tid="2">文件筐</span>
             </a>
             <a href="#">
-                <span class="text">美工刀</span>
+                <span class="text" data-tid="3">美工刀</span>
             </a>
             <a href="#">
-                <span class="text">三针一钉</span>
+                <span class="text" data-tid="4">三针一钉</span>
             </a>
             <a href="#">
-                <span class="text">风琴包</span>
+                <span class="text" data-tid="5">风琴包</span>
             </a>
             <a href="#">
-                <span class="text">票夹</span>
+                <span class="text" data-tid="6">票夹</span>
             </a>
         </div>
     </div>
     <div class="row">
         <div class="head">
             <h4>
-                <span class="title">品牌: </span>
+                <span class="title" data-cid="3">品牌: </span>
             </h4>
         </div>
         <div class="body">
             <a href="#">
-                <span class="text">得力</span>
+                <span class="text" data-tid="1">得力</span>
             </a>
             <a href="#">
-                <span class="text">齐心</span>
+                <span class="text" data-tid="2">齐心</span>
             </a>
             <a href="#">
-                <span class="text">优比利</span>
+                <span class="text" data-tid="3">优比利</span>
             </a>
             <a href="#">
-                <span class="text">三木</span>
+                <span class="text" data-tid="4">三木</span>
             </a>
             <a href="#">
-                <span class="text">BGC</span>
+                <span class="text" data-tid="5">BGC</span>
             </a>
             <a href="#">
-                <span class="text">广博</span>
+                <span class="text" data-tid="6">广博</span>
             </a>
         </div>
     </div>
@@ -150,16 +164,43 @@
     window.onload = function () {
         let group = document.getElementsByClassName('group')[0];
         let crumb = document.getElementsByClassName('crumb')[0];
+        let selectedPoll = {};
         group.onclick = function () {
-            if(event.target.className == 'text'){
-                let crumbA = document.createElement('a');
-                crumbA.innerText = event.target.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText + event.target.innerText;
-                crumbA.classList.add('crumbA_style');
-                crumb.appendChild(crumbA);
-                let btn_x = document.createElement('span');
-                btn_x.innerText = '×';
-                crumbA.appendChild(btn_x);
-                btn_x.classList.add('btn_x_style');
+            if (event.target.className == 'text') {
+                let classNode = event.target.parentNode.parentNode.previousElementSibling.children[0].children[0];
+                let tagNode = event.target;
+
+                let classId = classNode.dataset.cid;
+                let tagId = tagNode.dataset.tid;
+                if (!classId || !tagId) return;
+
+                let key = "f_" + classId + tagId;
+                event.target.dataset.key = key;
+                if (selectedPoll[key]) return;
+
+                if (!selectedPoll[key]) {
+                    chose(classNode, tagNode, key, event.target.dataset.key)
+                }
+            }
+        };
+
+        function chose(classNode, tagNode, key, tagKey) {
+            let crumbA = document.createElement('a');
+            crumbA.innerText = event.target.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText + event.target.innerText;
+            crumbA.classList.add('crumbA_style', 'selectedSpan');
+            crumbA.dataset.key = tagKey;
+            crumb.appendChild(crumbA);
+            let btn_x = document.createElement('span');
+            btn_x.innerText = '×';
+            crumbA.appendChild(btn_x);
+            btn_x.classList.add('btn_x_style');
+            selectedPoll[key] = true;
+        }
+
+        crumb.onclick = function () {
+            if (event.target.classList.contains('selectedSpan')) {
+                event.target.remove();
+                selectedPoll[event.target.dataset.key] = false;
             }
         }
     }
